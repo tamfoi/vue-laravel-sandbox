@@ -11,9 +11,25 @@ services:
       - workspace_server_vendor:/workspace/src/server/vendor
     ports:
       - 10080:80
-      - 13306:3306
     privileged: true
     command: /sbin/init
+  pma:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 14306:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: password
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    ports:
+      - 13306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
 
 volumes:
   workspace_client_node_modules:

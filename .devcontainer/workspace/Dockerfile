@@ -9,10 +9,6 @@ RUN yum update -y \
 RUN yum -y install httpd \
   && systemctl enable httpd
 
-# MariaDB
-RUN yum -y install mariadb-server \
-  && systemctl enable mariadb
-
 # PHP
 RUN amazon-linux-extras install epel
 RUN yum -y install epel-release
