@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  workspace:
+    build:
+      context: ./workspace
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    ports:
+      - 10080:80
+      - 13306:3306
+    privileged: true
+    command: /sbin/init
