@@ -1,0 +1,1 @@
+/.devcontainer/db/docker-entrypoint-initdb.d/99_dummy.sql
