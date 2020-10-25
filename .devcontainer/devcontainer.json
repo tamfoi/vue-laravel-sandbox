@@ -18,5 +18,6 @@
     "octref.vetur"
   ],
   // ホストOSのディレクトリのマウント設定
-  "workspaceFolder": "/workspace"
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": "npm ci --prefix /workspace/src/client && cd /workspace/src/server && composer install",
 }

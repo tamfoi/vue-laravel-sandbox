@@ -7,8 +7,14 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ..:/workspace:cached
+      - workspace_client_node_modules:/workspace/src/client/node_modules
+      - workspace_server_vendor:/workspace/src/server/vendor
     ports:
       - 10080:80
       - 13306:3306
     privileged: true
     command: /sbin/init
+
+volumes:
+  workspace_client_node_modules:
+  workspace_server_vendor:
